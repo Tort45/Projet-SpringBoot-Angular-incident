@@ -1,0 +1,69 @@
+<h3>Ajout incident</h3>
+
+<ul *ngIf="formsubmitted">
+  <li *="ourForm.controls['id'].errors?.['required']">id invalide</li>
+  <li *="ourForm.controls['titre'].errors?.['required']">titre incorect</li>
+  <li *="ourForm.controls['description'].errors?.['required']">description incorect</li>
+  <li *="ourForm.controls['gravite'].errors?.['required']">sélectionner une gravité</li>
+  <li *="ourForm.controls['type'].errors?.['required']">sélectionner un gravité</li>
+  <li *="ourForm.controls['email'].errors?.['required']">email invalid</li>
+</ul>
+
+
+<form [formGroup]="ourForm" (ngSubmit)="submitForm()">
+  <div>
+    <label for="id">Id</label>
+    <input type="number" id="id" formControlName="id">
+  </div>
+  <div>
+    <label for="titre">Titre</label>
+    <input type="text" id="titre" formControlName="titre">
+  </div>
+  <div>
+      <label for="description">Description</label>
+      <input type="text" id="description" formControlName="description">
+  </div>
+    <div>
+      <h3>Select a level of gravity</h3>
+      <div>
+        <input type="radio" id="FATAL" name="gravite" value="FATAL">
+        <label for="FATAL">FATAL</label>
+      </div>
+      <div>
+        <input type="radio" id="ERROR" name="gravite" value="ERROR">
+        <label for="ERROR">ERROR</label>
+      </div>
+      <div>
+        <input type="radio" id="HIGH" name="gravite" value="HIGH">
+        <label for="HIGH">HIGH</label>
+      </div>
+      <div>
+        <input type="radio" id="MEDIUM" name="gravite" value="MEDIUM">
+        <label for="MEDIUM">MEDIUM</label>
+      </div>
+      <div>
+        <input type="radio" id="MINOR" name="gravite" value="MINOR">
+        <label for="MINOR">MINOR</label>
+      </div>
+    </div>
+  <div>
+    <h3>Select a Type</h3>
+    <div>
+      <input type="radio" id="BUG" name="type" value="BUG">
+      <label for="BUG">BUG</label>
+    </div>
+    <div>
+      <input type="radio" id="FEATURE" name="type" value="FEATURE">
+      <label for="FEATURE">FEATURE</label>
+    </div>
+  </div>
+  <div>
+    <label for="progression">Progression</label>
+    <input type="number" id="progression">
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email">
+  </div>
+  <button type="submit">Submit</button>
+</form>
